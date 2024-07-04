@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Bai Jamjuree", sans-serif;
+      }
+      .cover {
+        position: relative;
+        text-align: center;
+      }
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        font-size: 96px;
+        font-weight: 600;
+        color: #b97727;
+        width: 446px;
+      }
+      .play {
+        position: absolute;
+        top: 50%;
+        left: 52%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <nav class="flex bg-white justify-between px-36 py-4">
+      <img src="./assets/Logo.png" alt="Brokerage" />
+      <ul class="flex items-center gap-x-8 text-black text-xl font-normal">
+        <li><a href="how-it-works.html">How it Works</a></li>
+        <li><a href="seller.html">Sellers</a></li>
+        <li><a href="buyer.html">Buyers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#section3">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <!-- Banner Section -->
+
+    <section class="cover flex w-full">
+      <div class="w-full">
+        <img
+          class="w-full h-[590px]"
+          src="./assets/how-it-works-banner.jpg"
+          alt=""
+        />
+        <h1 class="centered">How it Works</h1>
+        <img class="play" src="./assets/Play Button.svg" alt="play" />
+      </div>
+    </section>
+
+    <!-- Main Content -->
+
+    <section class="flex px-40 py-[47px]">
+      <div class="flex flex-col gap-y-11 w-full">
+        <!-- How it Works Points -->
+        <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
+          <div class="flex flex-col gap-y-2.5 w-11/12">
+            <h1 class="text-2xl text-[#b97727] font-bold">01</h1>
+            <h1 class="flex text-2xl font-bold text-[#535353]">Get on Board</h1>
+            <p class="flex text-base">
+              Once you sign up with us our friendly, knowledgeable consultants
+              do market research for you so you know what comparable homes are
+              currently selling for in your area. We do a home evaluation to
+              help you estimate the best price for which you can sell your home.
+            </p>
+          </div>
+          <div>
+            <img src="./assets/01-Icon.svg" class="" alt="" />
+          </div>
+        </div>
+        <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
+          <div class="flex flex-col gap-y-2.5 w-11/12">
+            <h1 class="text-2xl text-[#b97727] font-bold">02</h1>
+            <h1 class="flex text-2xl font-bold text-[#535353]">
+              Prepare to Sell
+            </h1>
+            <p class="flex text-base">
+              You will get expert recommendations on any home renovations that
+              may be necessary and we will suggest key improvements and
+              practical tips to make your home sale-ready. Our consultants can
+              arrange home staging for you to showcase your home in the best
+              possible way. We ensure that all unique attributes of your home
+              will be highlighted.
+            </p>
+          </div>
+          <div>
+            <img src="./assets/task.svg" class="" alt="" />
+          </div>
+        </div>
+        <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
+          <div class="flex flex-col gap-y-2.5 w-11/12">
+            <h1 class="text-2xl text-[#b97727] font-bold">03</h1>
+            <h1 class="flex text-2xl font-bold text-[#535353]">Meet Buyers</h1>
+            <p class="flex text-base">
+              What sets Save on Brokerage apart is the unique and professional
+              real estate event organized by us to help you find prospective
+              buyers for your home. The two-day real estate event brings buyers
+              and sellers together in a large interactive trading market where
+              you can deal directly with each other.
+            </p>
+          </div>
+          <div>
+            <img src="./assets/buyers.svg" class="" alt="" />
+          </div>
+        </div>
+        <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
+          <div class="flex flex-col gap-y-2.5 w-11/12">
+            <h1 class="text-2xl text-[#b97727] font-bold">04</h1>
+            <h1 class="flex text-2xl font-bold text-[#535353]">
+              Close The Deal
+            </h1>
+            <p class="flex text-base">
+              This event allows you to schedule appointments directly with
+              potential buyers. If needed, we also guide you to conduct your own
+              open house. Our consultants can negotiate for you to help make the
+              sale. We can even connect you to a real estate lawyer to help
+              close the deal smoothly. Sell your property directly to potential
+              buyers and maximize your net profit with no broker commission.
+            </p>
+          </div>
+          <div>
+            <img src="./assets/deal.svg" class="" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Need any Help Section -->
+
+    <section class="bg-[#f8f8f8] flex px-40 py-[47px]">
+      <div class="flex gap-x-5 justify-center w-full">
+        <h1 class="flex text-4xl font-medium">
+          For one on one consultation get in touch with us
+        </h1>
+        <div
+          class="flex border bg-[#b97727] h-[48px] text-white items-center gap-x-2.5 px-5 py-2.5 rounded-lg"
+        >
+          <img src="./assets/Call.svg" alt="" />
+          416-918-3123
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="bg-black px-40 py-[47px]">
+      <div class="flex gap-x-8 w-full">
+        <div class="flex flex-col w-full">
+          <img src="./assets/Logo.png" class="w-[448px]" alt="Brokerage" />
+          <h1 class="text-white text-lg py-5">
+            Real Estate Better Than You Imagined
+          </h1>
+          <h1 class="text-lg text-white">Address:</h1>
+          <p class="text-lg text-white py-2.5">
+            2030 Bristol Circle, Suite 210, <br />
+            Oakville, ON L6H 0H2
+          </p>
+          <h1 class="text-lg text-white pt-8">Phone:</h1>
+          <div class="text-lg text-white py-2.5 gap-x-2.5 flex">
+            <img src="./assets/Call.svg" alt="" />
+            416-918-3132
+          </div>
+          <div class="flex-col py-6">
+            <h1 class="text-lg text-white">Follow Us:</h1>
+            <div class="flex">
+              <img src="./assets/Instagram.svg" alt="" />
+              <img src="./assets/Facebook.svg" alt="" />
+              <img src="./assets/LinkedIn.svg" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col w-full">
+          <h1 class="flex flex-start text-2xl text-white py-4">
+            Stay in Touch
+          </h1>
+          <input
+            type="email"
+            placeholder="Your Email"
+            class="bg-[#2c2c2c] pl-3 rounded-lg w-full h-[56px]"
+          />
+          <div class="flex gap-x-5 py-14">
+            <div class="flex flex-col">
+              <h1 class="text-white text-lg">Popular Pages</h1>
+              <h2 class="text-white text-base">Buyers</h2>
+              <h2 class="text-white text-base">Sellers</h2>
+            </div>
+            <div class="flex flex-col">
+              <h1 class="text-white text-lg">Quick Links</h1>
+              <h2 class="text-white text-base">How it Works</h2>
+              <h2 class="text-white text-base">FAQ</h2>
+            </div>
+            <div class="flex flex-col">
+              <h1 class="text-white text-lg">Get to Know Us</h1>
+              <h2 class="text-white text-base">About</h2>
+              <h2 class="text-white text-base">Contact</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Bai Jamjuree", sans-serif;
+      }
+      .form {
+        background: #fff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        border-radius: 8px;
+        border: solid #b2b2b2;
+      }
+      .register {
+        color: #fff;
+        align-items: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    </style>
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <nav class="flex bg-white justify-between px-36 py-4">
+      <a href="index.html">
+        <img src="./assets/Logo.png" alt="index.html" />
+      </a>
+      <ul class="flex items-center gap-x-8 text-black text-xl font-normal">
+        <li><a href="how-it-works.html">How it Works</a></li>
+        <li><a href="seller.html">Sellers</a></li>
+        <li><a href="buyer.html">Buyers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#section3">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Banner Section -->
+    <section>
+      <div class="w-full">
+        <iframe
+          width="100%"
+          height="400"
+          title="location"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Phoenix%20Mall%20of%20the%20Millennium,%20S%20No.%20132,%2023,%20Pune%20-%20Bangalore%20Highway,%20Shankar%20Kalat%20Nagar,%20Wakad,%20Pune,%20Pimpri-Chinchwad,%20Maharashtra%20411057+(Location)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          ><a href="https://www.gps.ie/">gps tracker sport</a>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-[47px] px-40">
+      <div class="flex gap-4 relative">
+        <div class="flex flex-col gap-y-7 w-2/3">
+          <h1 class="flex text-xl text-[#535353]">Home/About</h1>
+          <div class="flex flex-col gap-y-6">
+            <h1 class="text-5xl text-[#535353]">Contact US</h1>
+          </div>
+          <div class="flex flex-col pt-16 gap-y-2">
+            <h1 class="text-2xl font-bold text-[#535353]">Address</h1>
+            <p class="text-base text-[#535353]">
+              2030 Bristol Circle, Suite 210, Oakville, ON L6H 0H2
+            </p>
+          </div>
+          <div class="flex flex-col pt-7 gap-y-2">
+            <h1 class="text-2xl font-bold text-[#535353]">Phone</h1>
+            <p class="text-base text-[#535353]">416-918-3132</p>
+          </div>
+        </div>
+        <div
+          class="bg-white flex flex-col relative shadow-2xl w-1/3 rounded-lg"
+        >
+          <div>
+            <div class="flex flex-col w-full">
+              <h1
+                class="text-3xl text-center w-full font-semibold text-[#b97727] px-10 pt-4"
+              >
+                Have Any Questions? Get in Touch!
+              </h1>
+              <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
+                <input
+                  type="text"
+                  class="form"
+                  placeholder="First Name"
+                  id="fname"
+                  name="fname"
+                />
+                <input
+                  type="text"
+                  class="form"
+                  placeholder="Last Name"
+                  id="lname"
+                  name="lname"
+                />
+                <input
+                  type="email"
+                  class="form"
+                  placeholder="Email"
+                  id="email"
+                  name="email"
+                />
+                <input
+                  type="tel"
+                  class="form"
+                  placeholder="Phone Number"
+                  id="pnumber"
+                  name="pnumber"
+                />
+                <input
+                  type="text"
+                  class="form"
+                  placeholder="Message"
+                  id="message"
+                  name="message"
+                />
+                <div
+                  class="bg-[#b97727] mx-8 rounded-full flex justify-center shadow-lg"
+                >
+                  <button type="submit" class="register items-center">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer Section -->
+  </body>
+</html>

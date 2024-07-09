@@ -76,29 +76,90 @@
         padding: 0.5rem 1.5rem 0.75rem;
         color: black;
       }
+      .menu-drawer {
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
     </style>
     <title>FAQ</title>
   </head>
   <body>
     <!-- Header Section -->
-    <nav class="flex bg-white justify-between px-36 py-4">
+    <nav class="flex items-center justify-between bg-white p-4 md:px-36">
       <a href="index.html">
         <img src="./assets/Logo.png" alt="index.html" />
       </a>
-      <ul class="flex items-center gap-x-8 text-black text-xl font-normal">
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-black focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul
+        id="menu"
+        class="hidden md:flex items-center gap-x-8 text-black text-xl font-normal"
+      >
         <li><a href="how-it-works.html">How it Works</a></li>
         <li><a href="seller.html">Sellers</a></li>
         <li><a href="buyer.html">Buyers</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="#section3">FAQ</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <section class="flex px-40 py-[47px]">
+
+    <!-- Menu Drawer -->
+    <div
+      id="drawer"
+      class="fixed inset-0 left-0 bg-white w-64 transform -translate-x-full menu-drawer"
+    >
+      <div class="flex justify-end p-4">
+        <button id="close-btn" class="text-black focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul
+        class="flex flex-col items-start p-4 space-y-4 text-black text-xl font-normal"
+      >
+        <li><a href="how-it-works.html">How it Works</a></li>
+        <li><a href="seller.html">Sellers</a></li>
+        <li><a href="buyer.html">Buyers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Accordion Section -->
+    <section class="flex px-4 md:px-40 py-[47px]">
       <div class="flex flex-col w-full">
         <div class="flex flex-col py-3">
-          <h1 class="text-[#535353] text-4xl">Frequently Asked Questions</h1>
-          <h2 class="text-[#535353] text-xl py-4">Home/FAQ</h2>
+          <h1 class="text-[#535353] text-2xl md:text-4xl">Frequently Asked Questions</h1>
+          <h2 class="text-[#535353] text-lg md:text-xl py-4">Home/FAQ</h2>
         </div>
         <!-- First Accordion -->
         <div class="Accordion-Bounce w-full flex flex-col">
@@ -106,7 +167,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>Is it a free service? If not, how much does it cost?</h1>
+            <h1 class="text-2xl md:text-3xl">Is it a free service? If not, how much does it cost?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -120,7 +181,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -134,7 +195,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>
+            <h1 class="text-2xl md:text-3xl">
               How much money can I save using Save On Brokerage instead of a
               traditional real estate company?
             </h1>
@@ -151,7 +212,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -165,7 +226,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>What services do you provide to the seller?</h1>
+            <h1 class="text-2xl md:text-3xl">What services do you provide to the seller?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -179,7 +240,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -193,7 +254,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>Approximately how long does it take to sell a home?</h1>
+            <h1 class="text-2xl md:text-3xl">Approximately how long does it take to sell a home?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -207,7 +268,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -221,7 +282,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>Do all homes get sold at the Buyers and Sellers event?</h1>
+            <h1 class="text-2xl md:text-3xl">Do all homes get sold at the Buyers and Sellers event?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -235,7 +296,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -249,7 +310,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>What happens if my home doesn’t sell at the event?</h1>
+            <h1 class="text-2xl md:text-3xl">What happens if my home doesn’t sell at the event?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -263,7 +324,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -277,7 +338,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>As a buyer, what services do I get?</h1>
+            <h1 class="text-2xl md:text-3xl">As a buyer, what services do I get?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -291,7 +352,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -305,7 +366,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>
+            <h1 class="text-2xl md:text-3xl">
               Can I sell my home and buy a new one at the same time at the
               event?
             </h1>
@@ -322,7 +383,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -336,7 +397,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>Can Save On Brokerage sell my house for me?</h1>
+            <h1 class="text-2xl md:text-3xl">Can Save On Brokerage sell my house for me?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -350,7 +411,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -364,7 +425,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>
+            <h1 class="text-2xl md:text-3xl">
               Can I sell my home and buy a new one at the same time at the
               event?
             </h1>
@@ -381,7 +442,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -395,7 +456,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>Can Save On Brokerage sell my house for me?</h1>
+            <h1 class="text-2xl md:text-3xl">Can Save On Brokerage sell my house for me?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -409,7 +470,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -423,7 +484,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>Is there a price range for homes sold at the event?</h1>
+            <h1 class="text-2xl md:text-3xl">Is there a price range for homes sold at the event?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -437,7 +498,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -451,7 +512,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>What’s the entry level bottom price of a home to be sold?</h1>
+            <h1 class="text-2xl md:text-3xl">What’s the entry level bottom price of a home to be sold?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -465,7 +526,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -479,7 +540,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>
+            <h1 class="text-2xl md:text-3xl">
               Can luxury properties in the $5m - $10m range be sold at the
               event?
             </h1>
@@ -496,7 +557,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -510,7 +571,7 @@
             class="accordion-header cursor-pointer p-4 text-white flex justify-between items-center"
             onclick="toggleAccordion(this)"
           >
-            <h1>Can vacant land be bought or sold at the event?</h1>
+            <h1 class="text-2xl md:text-3xl">Can vacant land be bought or sold at the event?</h1>
             <svg
               class="w-6 h-6 transition-transform transform"
               viewBox="0 0 20 20"
@@ -524,7 +585,7 @@
             </svg>
           </div>
           <div class="accordion-content">
-            <p>
+            <p class="text-lg md:text-xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum
               reiciendis consequuntur autem dicta nisi tenetur odit sed rem
               obcaecati eligendi distinctio dolorem, repellendus, illo culpa
@@ -537,37 +598,27 @@
 
     <!-- Contact Information Section -->
 
-    <section class="bg-[#f8f8f8] px-40 py-[47px]">
-      <div class="flex w-full justify-between">
+    <section class="bg-[#f8f8f8] flex px-4 md:px-40 py-[47px]">
+      <div class="flex gap-x-1 md:gap-x-5 justify-center items-center w-full">
         <div class="flex flex-col">
-          <div class="flex flex-col gap-y-1.5">
-            <h1 class="text-[48px] font-medium text-[#b97727]">
-              Need more info?
-            </h1>
-            <h1 class="font-normal text-xl text-black">
-              Get some of your questions answered on our FAQ page
-            </h1>
-          </div>
+          <h1 class="flex text-lg md:text-5xl font-medium text-[#B97727]">
+            Need more info?
+          </h1>
+          <h1 class="flex text-sm md:text-4xl font-medium">
+            Get some your questions answered on our FAQ page
+          </h1>
         </div>
-        <div class="flex items-center gap-x-5">
-          <div
-            class="flex border border-[#b97727] h-[48px] items-center px-5 py-2.5 rounded-lg"
-          >
-            Contact US
-          </div>
-          <div
-            class="flex border bg-[#b97727] h-[48px] text-white items-center gap-x-2.5 px-5 py-2.5 rounded-lg"
-          >
-            <img src="./assets/Call.svg" alt="" />
-            416-918-3123
-          </div>
+        <div
+          class="flex border bg-[#b97727] text-white items-center justify-center px-4 md:px-5 py-2.5 rounded-lg"
+        >
+          <img src="./assets/Call.svg" alt="" class="h-6 w-full" />
+          <p class="text-sm md:text-md text-nowrap">416-918-3123</p>
         </div>
       </div>
     </section>
 
     <!-- Footer Section -->
-
-    <section class="bg-black px-40 py-[47px]">
+    <section class="bg-black px-4 md:px-40 py-[47px]">
       <div class="flex gap-x-8 w-full">
         <div class="flex flex-col w-full">
           <img src="./assets/Logo.png" class="w-[448px]" alt="Brokerage" />
@@ -623,6 +674,21 @@
         </div>
       </div>
     </section>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const drawer = document.getElementById("drawer");
+
+      menuBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
+      });
+    </script>
     <script>
       function toggleAccordion(element) {
         const accordion = element.parentElement;

@@ -14,38 +14,154 @@
       body {
         font-family: "Bai Jamjuree", sans-serif;
       }
+      .cover {
+        position: relative;
+        text-align: left;
+      }
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        font-weight: 400;
+        color: white;
+        text-align: left;
+      }
+      .centered1 {
+        position: absolute;
+        top: 40%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        font-weight: 400;
+        color: white;
+        text-align: left;
+      }
+      .centered2 {
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 400;
+        color: white;
+        text-align: left;
+      }
+      .menu-drawer {
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
     </style>
     <title>Save on Brokerage</title>
   </head>
   <body>
     <!-- Header Section -->
-    <nav class="flex bg-white justify-between px-36 py-4">
+    <nav class="flex items-center justify-between bg-white p-4 md:px-36">
       <a href="index.html">
         <img src="./assets/Logo.png" alt="index.html" />
       </a>
-      <ul class="flex items-center gap-x-8 text-black text-xl font-normal">
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-black focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul
+        id="menu"
+        class="hidden md:flex items-center gap-x-8 text-black text-xl font-normal"
+      >
         <li><a href="how-it-works.html">How it Works</a></li>
         <li><a href="seller.html">Sellers</a></li>
         <li><a href="buyer.html">Buyers</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="#section3">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
+    <!-- Menu Drawer -->
+    <div
+      id="drawer"
+      class="fixed inset-0 left-0 bg-white w-64 transform -translate-x-full menu-drawer"
+    >
+      <div class="flex justify-end p-4">
+        <button id="close-btn" class="text-black focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul
+        class="flex flex-col items-start p-4 space-y-4 text-black text-xl font-normal"
+      >
+        <li><a href="how-it-works.html">How it Works</a></li>
+        <li><a href="seller.html">Sellers</a></li>
+        <li><a href="buyer.html">Buyers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#section3">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
     <!-- Banner Section -->
 
-    <section class="flex">
-      <img class="w-full h-[622px]" src="./assets/Banners.jpg" alt="" />
+    <section class="cover flex w-full">
+      <div class="w-full relative">
+        <img
+          class="w-full h-[311px] md:h-[622px] object-cover"
+          src="./assets/Banners.jpg"
+          alt=""
+        />
+        <div
+          class="absolute inset-0 flex flex-col justify-center items-start p-4 md:p-32"
+        >
+          <h1
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white"
+          >
+            Let’s Show You a Unique
+          </h1>
+          <h1
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mt-4"
+          >
+            Real Estate System
+          </h1>
+          <h2
+            class="text-md sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-white mt-4"
+          >
+            Commission Free! High Returns! Smartly Managed!
+          </h2>
+        </div>
+      </div>
     </section>
 
     <!-- How It Works Section -->
-    <section class="flex px-40 py-[47px]">
+    <section class="flex px-4 md:px-40 py-[47px]">
       <div class="flex flex-col gap-y-6">
-        <h1 class="text-center text-[#b97727] text-[40px]">
+        <h1 class="text-center text-[#b97727] text-3xl md:text-[40px]">
           Eliminate The large Commission Fee
         </h1>
-        <p class="flex text-2xl">
+        <p class="flex text-lg md:text-2xl">
           Buying or selling a home is one of the most important decision. It’s
           also one of the largest financial transactions you’ll probably ever
           make. In these uncertain economic times, as well as the ever-changing
@@ -54,7 +170,7 @@
           your buying and selling transaction as affordable and convenient as
           possible.
         </p>
-        <p class="flex text-2xl">
+        <p class="flex text-lg md:text-2xl">
           Think of Save on Brokerage as your trusted agent without the cost of
           the high commission. With us you will receive professional advice and
           have access to a vast array of services to fully complete your home
@@ -67,14 +183,16 @@
 
     <!-- Introduction Section -->
 
-    <section class="bg-[#f8f8f8] py-[47px] px-40">
-      <div class="flex justify-between w-full py-[47px]">
-        <div class="flex flex-col gap-y-8">
-          <h1 class="flex text-[#b97727] text-[40px]">
+    <section class="bg-[#f8f8f8] py-[47px] md:px-40 px-4">
+      <div
+        class="flex flex-col md:flex-row justify-between w-full py-[47px] gap-y-8 md:gap-y-0"
+      >
+        <div class="flex flex-col gap-y-8 md:w-1/2">
+          <h1 class="text-[#b97727] text-3xl md:text-[40px]">
             Be your own agent <br />
             Be in full control
           </h1>
-          <h2 class="flex text-2xl text-[#535353]">
+          <h2 class="text-2xl text-[#535353]">
             We can help you sell your property <br />
             without the middle man
           </h2>
@@ -88,22 +206,34 @@
             </h1>
           </div>
         </div>
-        <div class="flex">
-          <img src="./assets/image.png" alt="" />
+        <div class="flex justify-center md:w-1/2">
+          <img src="./assets/image.png" alt="" class="max-w-full h-auto" />
         </div>
       </div>
     </section>
 
     <!-- How it Works Section -->
 
-    <section class="flex px-40 py-[47px]">
+    <section class="flex flex-col px-4 md:px-40 py-[47px]">
       <div class="flex flex-col w-full gap-y-6">
-        <h1 class="text-center text-[#b97727] text-[40px]">How It Works</h1>
-        <div class="flex w-full h-[417px]">
-          <div class="w-1/2"><img src="./assets/LeftBox.png" alt="" /></div>
-          <div class="flex flex-wrap w-1/2 gap-y-4">
-            <div class="w-full flex gap-4">
-              <div class="border w-full rounded-lg px-4 py-6 h-[200px]">
+        <h1 class="text-center text-[#b97727] text-[32px] md:text-[40px]">
+          How It Works
+        </h1>
+        <div
+          class="flex flex-col md:flex-row w-full h-auto md:h-[417px] gap-y-6 md:gap-y-0"
+        >
+          <div class="w-full md:w-1/2">
+            <img
+              src="./assets/LeftBox.png"
+              alt=""
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="flex flex-wrap w-full md:w-1/2 gap-y-4">
+            <div class="w-full flex flex-col md:flex-row gap-4">
+              <div
+                class="border w-full md:w-1/2 rounded-lg px-4 py-6 h-auto md:h-[200px]"
+              >
                 <div class="flex justify-between">
                   <h1 class="text-2xl text-[#b97727] font-bold">01</h1>
                   <img src="./assets/icon1.svg" alt="" />
@@ -120,7 +250,9 @@
                   </p>
                 </div>
               </div>
-              <div class="border w-full rounded-lg px-4 py-6 h-[200px]">
+              <div
+                class="border w-full md:w-1/2 rounded-lg px-4 py-6 h-auto md:h-[200px]"
+              >
                 <div class="flex justify-between">
                   <h1 class="text-2xl text-[#b97727] font-bold">02</h1>
                   <img src="./assets/icon2.svg" alt="" />
@@ -138,8 +270,10 @@
                 </div>
               </div>
             </div>
-            <div class="w-full flex gap-4">
-              <div class="border w-full rounded-lg px-4 py-6 h-[200px]">
+            <div class="w-full flex flex-col md:flex-row gap-4">
+              <div
+                class="border w-full md:w-1/2 rounded-lg px-4 py-6 h-auto md:h-[200px]"
+              >
                 <div class="flex justify-between">
                   <h1 class="text-2xl text-[#b97727] font-bold">03</h1>
                   <img src="./assets/icon3.svg" alt="" />
@@ -151,12 +285,14 @@
                 </div>
                 <div class="flex py-4">
                   <p class="flex text-base font-normal text-[#535353]">
-                    We will organize and event <br />
+                    We will organize an event <br />
                     for buyers and sellers.
                   </p>
                 </div>
               </div>
-              <div class="border w-full rounded-lg px-4 py-6 h-[200px]">
+              <div
+                class="border w-full md:w-1/2 rounded-lg px-4 py-6 h-auto md:h-[200px]"
+              >
                 <div class="flex justify-between">
                   <h1 class="text-2xl text-[#b97727] font-bold">04</h1>
                   <img src="./assets/icon4.svg" alt="" />
@@ -200,26 +336,28 @@
 
     <!-- Contact Information Section -->
 
-    <section class="md:flex bg-[#f8f8f8] px-40 py-[47px]">
-      <div class="md:flex w-full justify-between">
-        <div class="flex flex-col">
-          <div class="flex flex-col gap-y-1.5">
-            <h1 class="text-[48px] font-medium text-[#b97727]">
-              Need more info?
-            </h1>
-            <h1 class="font-normal text-xl text-black">
-              Get some of your questions answered on our FAQ page
-            </h1>
-          </div>
+    <section class="bg-[#f8f8f8] py-[47px] px-4 md:px-40">
+      <div
+        class="flex flex-col md:flex-row justify-between w-full gap-y-8 md:gap-y-0"
+      >
+        <div class="flex flex-col gap-y-1.5 md:w-1/2">
+          <h1 class="text-[32px] md:text-[48px] font-medium text-[#b97727]">
+            Need more info?
+          </h1>
+          <h1 class="font-normal text-lg md:text-xl text-black">
+            Get some of your questions answered on our FAQ page
+          </h1>
         </div>
-        <div class="md:flex items-center gap-x-5">
+        <div
+          class="flex flex-col md:flex-row items-center gap-y-4 md:gap-x-5 md:w-1/2"
+        >
           <div
-            class="md:flex border border-[#b97727] h-[48px] items-center px-5 py-2.5 rounded-lg"
+            class="border border-[#b97727] h-[48px] flex items-center justify-center px-5 py-2.5 rounded-lg"
           >
-            Contact US
+            Contact Us
           </div>
           <div
-            class="md:flex border bg-[#b97727] h-[48px] text-white items-center gap-x-2.5 px-5 py-2.5 rounded-lg"
+            class="border bg-[#b97727] h-[48px] text-white flex items-center gap-x-2.5 px-5 py-2.5 rounded-lg"
           >
             <img src="./assets/Call.svg" alt="" />
             416-918-3123
@@ -229,8 +367,7 @@
     </section>
 
     <!-- Footer Section -->
-
-    <section class="md:bg-black px-40 py-[47px]">
+    <section class="bg-black px-4 md:px-40 py-[47px]">
       <div class="flex gap-x-8 w-full">
         <div class="flex flex-col w-full">
           <img src="./assets/Logo.png" class="w-[448px]" alt="Brokerage" />
@@ -286,5 +423,20 @@
         </div>
       </div>
     </section>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const drawer = document.getElementById("drawer");
+
+      menuBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
+      });
+    </script>
   </body>
 </html>

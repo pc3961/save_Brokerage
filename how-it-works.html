@@ -23,11 +23,9 @@
         top: 50%;
         left: 20%;
         transform: translate(-50%, -50%);
-        display: flex;
-        font-size: 96px;
         font-weight: 600;
         color: #b97727;
-        width: 446px;
+        text-align: center;
       }
       .play {
         position: absolute;
@@ -35,16 +33,41 @@
         left: 52%;
         transform: translate(-50%, -50%);
       }
+      .menu-drawer {
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
     </style>
     <title>Document</title>
   </head>
   <body>
     <!-- Header Section -->
-    <nav class="flex bg-white justify-between px-36 py-4">
+    <nav class="flex items-center justify-between bg-white p-4 md:px-36">
       <a href="index.html">
         <img src="./assets/Logo.png" alt="index.html" />
       </a>
-      <ul class="flex items-center gap-x-8 text-black text-xl font-normal">
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-black focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul
+        id="menu"
+        class="hidden md:flex items-center gap-x-8 text-black text-xl font-normal"
+      >
         <li><a href="how-it-works.html">How it Works</a></li>
         <li><a href="seller.html">Sellers</a></li>
         <li><a href="buyer.html">Buyers</a></li>
@@ -54,29 +77,87 @@
       </ul>
     </nav>
 
+    <!-- Menu Drawer -->
+    <div
+      id="drawer"
+      class="fixed inset-0 left-0 bg-white w-64 transform -translate-x-full menu-drawer"
+    >
+      <div class="flex justify-end p-4">
+        <button id="close-btn" class="text-black focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul
+        class="flex flex-col items-start p-4 space-y-4 text-black text-xl font-normal"
+      >
+        <li><a href="how-it-works.html">How it Works</a></li>
+        <li><a href="seller.html">Sellers</a></li>
+        <li><a href="buyer.html">Buyers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#section3">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
     <!-- Banner Section -->
 
-    <section class="cover flex w-full">
-      <div class="w-full">
+    <section class="cover flex w-full relative">
+      <div class="w-full relative">
         <img
-          class="w-full h-[590px]"
+          class="w-full h-[295px] md:h-[590px] object-cover"
           src="./assets/how-it-works-banner.jpg"
           alt=""
         />
-        <h1 class="centered">How it Works</h1>
-        <img class="play" src="./assets/Play Button.svg" alt="play" />
+        <h1
+          class="centered text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+        >
+          How it Works
+        </h1>
+        <img
+          class="play w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
+          src="./assets/Play Button.svg"
+          alt="play"
+        />
       </div>
     </section>
 
     <!-- Main Content -->
 
-    <section class="flex px-40 py-[47px]">
+    <section class="flex py-[47px] px-4 md:px-40">
       <div class="flex flex-col gap-y-11 w-full">
         <!-- How it Works Points -->
-        <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
-          <div class="flex flex-col gap-y-2.5 w-11/12">
-            <h1 class="text-2xl text-[#b97727] font-bold">01</h1>
-            <h1 class="flex text-2xl font-bold text-[#535353]">Get on Board</h1>
+        <div
+          class="flex items-center px-5 py-5 w-full border rounded-lg border-[#b97727]"
+        >
+          <div class="flex flex-col gap-y-2.5 md:w-11/12 w-full">
+            <div class="flex justify-between">
+              <div>
+                <h1 class="text-2xl text-[#b97727] font-bold">01</h1>
+                <h1 class="flex text-2xl font-bold text-[#535353]">
+                  Get on Board
+                </h1>
+              </div>
+              <div class="md:hidden block">
+                <img
+                  src="./assets/01-Icon.svg"
+                  class="w-16 h-16 md:w-auto md:h-auto"
+                  alt=""
+                />
+              </div>
+            </div>
             <p class="flex text-base">
               Once you sign up with us our friendly, knowledgeable consultants
               do market research for you so you know what comparable homes are
@@ -84,16 +165,31 @@
               help you estimate the best price for which you can sell your home.
             </p>
           </div>
-          <div>
-            <img src="./assets/01-Icon.svg" class="" alt="" />
+          <div class="md:block hidden">
+            <img
+              src="./assets/01-Icon.svg"
+              class="w-16 h-16 md:w-auto md:h-auto"
+              alt=""
+            />
           </div>
         </div>
         <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
-          <div class="flex flex-col gap-y-2.5 w-11/12">
-            <h1 class="text-2xl text-[#b97727] font-bold">02</h1>
-            <h1 class="flex text-2xl font-bold text-[#535353]">
-              Prepare to Sell
-            </h1>
+          <div class="flex flex-col gap-y-2.5 w-full md:w-11/12">
+            <div class="flex justify-between">
+              <div>
+                <h1 class="text-2xl text-[#b97727] font-bold">02</h1>
+                <h1 class="flex text-2xl font-bold text-[#535353]">
+                  Prepare to Sell
+                </h1>
+              </div>
+              <div class="md:hidden block">
+                <img
+                  src="./assets/task.svg"
+                  class="w-16 h-16 md:w-auto md:h-auto"
+                  alt=""
+                />
+              </div>
+            </div>
             <p class="flex text-base">
               You will get expert recommendations on any home renovations that
               may be necessary and we will suggest key improvements and
@@ -103,14 +199,32 @@
               will be highlighted.
             </p>
           </div>
-          <div>
-            <img src="./assets/task.svg" class="" alt="" />
+          <div class="md:block hidden">
+            <img
+              src="./assets/task.svg"
+              class="w-16 h-16 md:w-auto md:h-auto"
+              alt=""
+            />
           </div>
         </div>
         <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
-          <div class="flex flex-col gap-y-2.5 w-11/12">
-            <h1 class="text-2xl text-[#b97727] font-bold">03</h1>
-            <h1 class="flex text-2xl font-bold text-[#535353]">Meet Buyers</h1>
+          <div class="flex flex-col gap-y-2.5 md:w-11/12 w-full">
+            <div class="flex justify-between">
+              <div>
+                <h1 class="text-2xl text-[#b97727] font-bold">03</h1>
+                <h1 class="flex text-2xl font-bold text-[#535353]">
+                  Meet Buyers
+                </h1>
+              </div>
+              <div class="md:hidden block">
+                <img
+                  src="./assets/buyers.svg"
+                  class="w-16 h-16 md:w-auto md:h-auto"
+                  alt=""
+                />
+              </div>
+            </div>
+
             <p class="flex text-base">
               What sets Save on Brokerage apart is the unique and professional
               real estate event organized by us to help you find prospective
@@ -119,16 +233,27 @@
               you can deal directly with each other.
             </p>
           </div>
-          <div>
-            <img src="./assets/buyers.svg" class="" alt="" />
+          <div class="md:block hidden">
+            <img
+              src="./assets/buyers.svg"
+              class="w-16 h-16 md:w-auto md:h-auto"
+              alt=""
+            />
           </div>
         </div>
         <div class="flex px-5 py-5 w-full border rounded-lg border-[#b97727]">
-          <div class="flex flex-col gap-y-2.5 w-11/12">
-            <h1 class="text-2xl text-[#b97727] font-bold">04</h1>
-            <h1 class="flex text-2xl font-bold text-[#535353]">
-              Close The Deal
-            </h1>
+          <div class="flex flex-col gap-y-2.5 md:w-11/12 w-full">
+            <div class="flex justify-between">
+              <div>
+                <h1 class="text-2xl text-[#b97727] font-bold">04</h1>
+                <h1 class="flex text-2xl font-bold text-[#535353]">
+                  Close The Deal
+                </h1>
+              </div>
+              <div class="md:hidden block">
+                <img src="./assets/deal.svg" class="w-16 h-16 md:w-auto md:h-auto" alt="" />
+              </div>
+            </div>
             <p class="flex text-base">
               This event allows you to schedule appointments directly with
               potential buyers. If needed, we also guide you to conduct your own
@@ -138,8 +263,8 @@
               buyers and maximize your net profit with no broker commission.
             </p>
           </div>
-          <div>
-            <img src="./assets/deal.svg" class="" alt="" />
+          <div class="md:block hidden">
+            <img src="./assets/deal.svg" class="w-16 h-16 md:w-auto md:h-auto" alt="" />
           </div>
         </div>
       </div>
@@ -147,22 +272,22 @@
 
     <!-- Need any Help Section -->
 
-    <section class="bg-[#f8f8f8] flex px-40 py-[47px]">
-      <div class="flex gap-x-5 justify-center w-full">
-        <h1 class="flex text-4xl font-medium">
+    <section class="bg-[#f8f8f8] flex px-4 md:px-40 py-[47px]">
+      <div class="flex gap-x-1 md:gap-x-5 justify-center items-center w-full">
+        <h1 class="flex text-sm md:text-4xl font-medium">
           For one on one consultation get in touch with us
         </h1>
         <div
-          class="flex border bg-[#b97727] h-[48px] text-white items-center gap-x-2.5 px-5 py-2.5 rounded-lg"
+          class="flex border bg-[#b97727] text-white items-center justify-center px-4 md:px-5 py-2.5 rounded-lg"
         >
-          <img src="./assets/Call.svg" alt="" />
-          416-918-3123
+          <img src="./assets/Call.svg" alt="" class="h-6 w-full" />
+          <p class="text-sm md:text-md text-nowrap">416-918-3123</p>
         </div>
       </div>
     </section>
 
     <!-- Footer Section -->
-    <section class="bg-black px-40 py-[47px]">
+    <section class="bg-black px-4 md:px-40 py-[47px]">
       <div class="flex gap-x-8 w-full">
         <div class="flex flex-col w-full">
           <img src="./assets/Logo.png" class="w-[448px]" alt="Brokerage" />
@@ -218,5 +343,20 @@
         </div>
       </div>
     </section>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const drawer = document.getElementById("drawer");
+
+      menuBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
+      });
+    </script>
   </body>
 </html>

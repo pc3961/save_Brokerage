@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <style>
       body {
         font-family: "Bai Jamjuree", sans-serif;
@@ -49,6 +53,26 @@
         transition: transform 0.3s ease;
         z-index: 1;
       }
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
     </style>
     <title>Save on Brokerage</title>
   </head>
@@ -80,15 +104,26 @@
         id="menu"
         class="hidden md:flex items-center gap-x-8 text-black text-xl font-normal"
       >
-        <li><a href="how-it-works.html">How it Works</a></li>
-        <li><a href="seller.html">Sellers</a></li>
-        <li><a href="buyer.html">Buyers</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="how-it-works.html">How it Works</a>
+        </li>
+        <li>
+          <a href="seller.html">Sellers</a>
+        </li>
+        <li>
+          <a href="buyer.html">Buyers</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="faq.html">FAQ</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
       </ul>
     </nav>
-
     <!-- Menu Drawer -->
     <div
       id="drawer"
@@ -115,17 +150,27 @@
       <ul
         class="flex flex-col items-start p-4 space-y-4 text-black text-xl font-normal"
       >
-        <li><a href="how-it-works.html">How it Works</a></li>
-        <li><a href="seller.html">Sellers</a></li>
-        <li><a href="buyer.html">Buyers</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a href="how-it-works.html">How it Works</a>
+        </li>
+        <li>
+          <a href="seller.html">Sellers</a>
+        </li>
+        <li>
+          <a href="buyer.html">Buyers</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="faq.html">FAQ</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
       </ul>
     </div>
-
     <!-- Banner Section -->
-
     <section class="cover flex w-full">
       <div class="w-full relative">
         <img
@@ -154,7 +199,6 @@
         </div>
       </div>
     </section>
-
     <!-- How It Works Section -->
     <section class="flex px-4 md:px-40 py-[47px]">
       <div class="flex flex-col gap-y-6">
@@ -180,20 +224,20 @@
         </p>
       </div>
     </section>
-
     <!-- Introduction Section -->
-
     <section class="bg-[#f8f8f8] py-[47px] md:px-40 px-4">
       <div
         class="flex flex-col md:flex-row justify-between w-full py-[47px] gap-y-8 md:gap-y-0"
       >
         <div class="flex flex-col gap-y-8 md:w-1/2">
           <h1 class="text-[#b97727] text-3xl md:text-[40px]">
-            Be your own agent <br />
+            Be your own agent
+            <br />
             Be in full control
           </h1>
           <h2 class="text-2xl text-[#535353]">
-            We can help you sell your property <br />
+            We can help you sell your property
+            <br />
             without the middle man
           </h2>
           <div class="flex flex-col gap-y-4">
@@ -211,9 +255,7 @@
         </div>
       </div>
     </section>
-
     <!-- How it Works Section -->
-
     <section class="flex flex-col px-4 md:px-40 py-[47px]">
       <div class="flex flex-col w-full gap-y-6">
         <h1 class="text-center text-[#b97727] text-[32px] md:text-[40px]">
@@ -247,7 +289,8 @@
                 </div>
                 <div class="py-4">
                   <p class="text-sm md:text-base font-normal text-[#535353]">
-                    Sign up with us to get <br />
+                    Sign up with us to get
+                    <br />
                     our professional service.
                   </p>
                 </div>
@@ -268,7 +311,8 @@
                 </div>
                 <div class="py-4">
                   <p class="text-sm md:text-base font-normal text-[#535353]">
-                    We will provide you the tools <br />
+                    We will provide you the tools
+                    <br />
                     and set you for the sale.
                   </p>
                 </div>
@@ -291,7 +335,8 @@
                 </div>
                 <div class="py-4">
                   <p class="text-sm md:text-base font-normal text-[#535353]">
-                    We will organize an event <br />
+                    We will organize an event
+                    <br />
                     for buyers and sellers.
                   </p>
                 </div>
@@ -312,7 +357,8 @@
                 </div>
                 <div class="py-4">
                   <p class="text-sm md:text-base font-normal text-[#535353]">
-                    We will help you negotiate <br />
+                    We will help you negotiate
+                    <br />
                     and do all the papers.
                   </p>
                 </div>
@@ -329,21 +375,53 @@
         </div>
       </div>
     </section>
-
     <!-- Upcoming Events -->
-
     <section
-      class="md:flex px-40 py-[47px] bg-gradient-to-r from-[#007DB8] via-[#00ADFF] via-[#45C3FF] to-[#007DB8] w-full"
+      class="md:flex flex-col px-4 md:px-40 py-[47px] bg-gradient-to-r from-[#007DB8] via-[#00ADFF] via-[#45C3FF] to-[#007DB8] w-full"
     >
-      <div class="flex w-full flex-col">
+      <div class="flex w-full flex-col py-4">
         <h1 class="text-white text-center font-medium text-[40px]">
           Upcoming events
         </h1>
       </div>
+      <div class="flex flex-col swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide rounded-full">
+            <img src="./assets/Event-1.png" alt="" />
+          </div>
+          <div class="swiper-slide rounded-lg">
+            <div class="w-full h-full relative rounded-lg">
+              <img
+                class="w-full h-full object-cover rounded-lg"
+                src="./assets/buyers 1.jpg"
+                alt=""
+              />
+              <div
+                class="absolute bottom-0 w-full bg-white flex justify-between p-3 items-center rounded-lg"
+              >
+                <div class="text-left">
+                  <h1 class="text-lg md:text-2xl font-bold text-[#B97727]">
+                    Home Buyers
+                  </h1>
+                  <p class="text-md md:text-xl">Find your dream home</p>
+                </div>
+                <div class="">
+                  <button
+                    id="registerButton"
+                    class="border border-[#b97727] flex items-center text-2xl font-medium h-[46px] rounded-lg bg-white py-2 px-9"
+                  >
+                    Register
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
     </section>
-
     <!-- Contact Information Section -->
-
     <section class="bg-[#f8f8f8] py-[47px] px-4 md:px-40">
       <div
         class="flex flex-col md:flex-row justify-between w-full gap-y-8 md:gap-y-0"
@@ -373,7 +451,6 @@
         </div>
       </div>
     </section>
-
     <!-- Footer Section -->
     <section class="bg-black px-4 md:px-40 py-[47px]">
       <div class="flex gap-x-8 w-full">
@@ -384,7 +461,8 @@
           </h1>
           <h1 class="text-lg text-white">Address:</h1>
           <p class="text-lg text-white py-2.5">
-            2030 Bristol Circle, Suite 210, <br />
+            2030 Bristol Circle, Suite 210,
+            <br />
             Oakville, ON L6H 0H2
           </p>
           <h1 class="text-lg text-white pt-8">Phone:</h1>
@@ -401,7 +479,6 @@
             </div>
           </div>
         </div>
-
         <div class="flex flex-col w-full">
           <h1 class="flex flex-start text-2xl text-white py-4">
             Stay in Touch
@@ -431,6 +508,7 @@
         </div>
       </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       const menuBtn = document.getElementById("menu-btn");
       const closeBtn = document.getElementById("close-btn");
@@ -445,6 +523,21 @@
         drawer.classList.toggle("-translate-x-full");
         drawer.classList.toggle("translate-x-0");
       });
+    </script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <script>
+      document
+        .getElementById("registerButton")
+        .addEventListener("click", function () {
+          window.location.href = "/buyer.html"; // Replace with the path to your .html file
+        });
     </script>
   </body>
 </html>

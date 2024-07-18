@@ -54,8 +54,8 @@
         z-index: 1;
       }
       .swiper {
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
       }
 
       .swiper-slide {
@@ -72,6 +72,10 @@
         width: 100%;
         height: 100%;
         object-fit: fill;
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: white;
       }
     </style>
     <title>Save on Brokerage</title>
@@ -229,7 +233,9 @@
       <div
         class="flex flex-col lg:flex-row justify-between w-full py-[47px] gap-y-8 lg:gap-y-0"
       >
-        <div class="flex flex-col gap-y-8 w-full text-center lg:text-left lg:w-1/2">
+        <div
+          class="flex flex-col gap-y-8 w-full text-center lg:text-left lg:w-1/2"
+        >
           <h1 class="text-[#b97727] text-3xl lg:text-[40px]">
             Be your own agent
             <br />
@@ -248,6 +254,13 @@
             <h1 class="text-2xl font-bold text-[#b97727]">
               Take more money home
             </h1>
+          </div>
+          <div class="flex justify-start items-center py-7">
+            <button
+              class="border border-[#b97727] flex items-center text-2xl font-medium h-[46px] rounded-lg bg-white py-2 px-9"
+            >
+              Get in Touch
+            </button>
           </div>
         </div>
         <div class="flex justify-center lg:w-1/2">
@@ -491,18 +504,20 @@
           <div class="flex gap-x-5 py-14">
             <div class="flex flex-col">
               <h1 class="text-white text-lg">Popular Pages</h1>
-              <h2 class="text-white text-base">Buyers</h2>
-              <h2 class="text-white text-base">Sellers</h2>
+              <a class="text-white text-base" href="buyer.html">Buyers</a>
+              <a class="text-white text-base" href="seller.html">Sellers</a>
             </div>
             <div class="flex flex-col">
               <h1 class="text-white text-lg">Quick Links</h1>
-              <h2 class="text-white text-base">How it Works</h2>
-              <h2 class="text-white text-base">FAQ</h2>
+              <a class="text-white text-base" href="how-it-works.html"
+                >How it Works</a
+              >
+              <a class="text-white text-base" href="faq.html">FAQ</a>
             </div>
             <div class="flex flex-col">
               <h1 class="text-white text-lg">Get to Know Us</h1>
-              <h2 class="text-white text-base">About</h2>
-              <h2 class="text-white text-base">Contact</h2>
+              <a class="text-white text-base" href="about.html">About</a>
+              <a class="text-white text-base" href="contact.html">Contact</a>
             </div>
           </div>
         </div>

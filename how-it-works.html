@@ -18,20 +18,32 @@
         position: relative;
         text-align: center;
       }
+      .video-container {
+        position: relative;
+        width: 100%;
+      }
       .centered {
         position: absolute;
         top: 50%;
         left: 20%;
         transform: translate(-50%, -50%);
-        font-weight: 600;
-        color: #b97727;
         text-align: center;
+        color: #b97727;
+        z-index: 1; /* Ensure text and image are above video */
+        transition: opacity 0.3s ease; /* Optional: Add a transition for smooth hiding */
       }
+
       .play {
         position: absolute;
         top: 50%;
-        left: 52%;
+        left: 50%;
         transform: translate(-50%, -50%);
+        cursor: pointer;
+        z-index: 1; /* Ensure play button is above video */
+      }
+
+      .hidden {
+        display: none;
       }
       .menu-drawer {
         transition: transform 0.3s ease;
@@ -115,21 +127,28 @@
     <!-- Banner Section -->
 
     <section class="cover flex w-full relative">
-      <div class="w-full relative">
-        <img
-          class="w-full h-[295px] md:h-[590px] object-cover"
-          src="./assets/how-it-works-banner.jpg"
-          alt=""
-        />
+      <div class="video-container">
+        <video
+          id="myVideo"
+          controls
+          height="195"
+          width="590"
+          class="w-full object-cover"
+        >
+          <source src="/assets/SaveOn-video.mp4" type="video/mp4" />
+        </video>
         <h1
+          id="videoTitle"
           class="centered text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
         >
           How it Works
         </h1>
         <img
+          id="playButton"
           class="play w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20"
           src="./assets/Play Button.svg"
           alt="play"
+          onclick="startVideo()"
         />
       </div>
     </section>
@@ -251,7 +270,11 @@
                 </h1>
               </div>
               <div class="md:hidden block">
-                <img src="./assets/deal.svg" class="w-16 h-16 md:w-auto md:h-auto" alt="" />
+                <img
+                  src="./assets/deal.svg"
+                  class="w-16 h-16 md:w-auto md:h-auto"
+                  alt=""
+                />
               </div>
             </div>
             <p class="flex text-base">
@@ -264,7 +287,11 @@
             </p>
           </div>
           <div class="md:block hidden">
-            <img src="./assets/deal.svg" class="w-16 h-16 md:w-auto md:h-auto" alt="" />
+            <img
+              src="./assets/deal.svg"
+              class="w-16 h-16 md:w-auto md:h-auto"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -358,6 +385,16 @@
       closeBtn.addEventListener("click", () => {
         drawer.classList.toggle("-translate-x-full");
         drawer.classList.toggle("translate-x-0");
+      });
+    </script>
+    <script>
+      document.getElementById("myVideo").addEventListener("play", function () {
+        var title = document.getElementById("videoTitle");
+        var playButton = document.getElementById("playButton");
+
+        // Hide title and play button
+        title.classList.add("hidden");
+        playButton.classList.add("hidden");
       });
     </script>
   </body>

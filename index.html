@@ -54,8 +54,8 @@
         z-index: 1;
       }
       .swiper {
-        width: 80%;
-        height: 80%;
+        width: 70%;
+        height: 70%;
       }
 
       .swiper-slide {
@@ -257,6 +257,7 @@
           </div>
           <div class="flex justify-start items-center py-7">
             <button
+            id="myButton2"
               class="border border-[#b97727] flex items-center text-2xl font-medium h-[46px] rounded-lg bg-white py-2 px-9"
             >
               Get in Touch
@@ -539,6 +540,11 @@
         drawer.classList.toggle("translate-x-0");
       });
     </script>
+    <script type="text/javascript">
+      document.getElementById("myButton2").onclick = function () {
+          location.href = "./contact.html";
+      };
+  </script>
     <script>
       var swiper = new Swiper(".mySwiper", {
         navigation: {

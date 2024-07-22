@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -96,7 +97,9 @@
           </svg>
         </button>
       </div>
-      <ul class="flex flex-col items-start p-4 space-y-4 text-black text-xl font-normal">
+      <ul
+        class="flex flex-col items-start p-4 space-y-4 text-black text-xl font-normal"
+      >
         <li><a href="how-it-works.html">How it Works</a></li>
         <li><a href="seller.html">Sellers</a></li>
         <li><a href="buyer.html">Buyers</a></li>
@@ -167,50 +170,53 @@
               >
                 I am looking to sell!
               </h1>
-              <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
-                <input
-                  type="text"
-                  class="form"
-                  placeholder="First Name"
-                  id="fname"
-                  name="fname"
-                />
-                <input
-                  type="text"
-                  class="form"
-                  placeholder="Last Name"
-                  id="lname"
-                  name="lname"
-                />
-                <input
-                  type="email"
-                  class="form"
-                  placeholder="Email"
-                  id="email"
-                  name="email"
-                />
-                <input
-                  type="tel"
-                  class="form"
-                  placeholder="Phone Number"
-                  id="pnumber"
-                  name="pnumber"
-                />
-                <input
-                  type="text"
-                  class="form"
-                  placeholder="Message"
-                  id="message"
-                  name="message"
-                />
-                <div
-                  class="border border-[#535353] mx-8 rounded-full flex justify-center shadow-lg"
-                >
-                  <button type="submit" class="register items-center">
-                    Please Contact Me
-                  </button>
+              <form action="?" method="POST">
+                <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
+                  <input
+                    type="text"
+                    class="form"
+                    placeholder="First Name"
+                    id="fname"
+                    name="fname"
+                  />
+                  <input
+                    type="text"
+                    class="form"
+                    placeholder="Last Name"
+                    id="lname"
+                    name="lname"
+                  />
+                  <input
+                    type="email"
+                    class="form"
+                    placeholder="Email"
+                    id="email"
+                    name="email"
+                  />
+                  <input
+                    type="tel"
+                    class="form"
+                    placeholder="Phone Number"
+                    id="pnumber"
+                    name="pnumber"
+                  />
+                  <input
+                    type="text"
+                    class="form"
+                    placeholder="Message"
+                    id="message"
+                    name="message"
+                  />
+                  <div class="g-recaptcha" data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"></div>
+                  <div
+                    class="border border-[#535353] mx-8 rounded-full flex justify-center shadow-lg"
+                  >
+                    <button type="submit" class="register items-center">
+                      Please Contact Me
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -279,18 +285,18 @@
     </section>
 
     <script>
-      const menuBtn = document.getElementById('menu-btn');
-      const closeBtn = document.getElementById('close-btn');
-      const drawer = document.getElementById('drawer');
+      const menuBtn = document.getElementById("menu-btn");
+      const closeBtn = document.getElementById("close-btn");
+      const drawer = document.getElementById("drawer");
 
-      menuBtn.addEventListener('click', () => {
-        drawer.classList.toggle('-translate-x-full');
-        drawer.classList.toggle('translate-x-0');
+      menuBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
       });
 
-      closeBtn.addEventListener('click', () => {
-        drawer.classList.toggle('-translate-x-full');
-        drawer.classList.toggle('translate-x-0');
+      closeBtn.addEventListener("click", () => {
+        drawer.classList.toggle("-translate-x-full");
+        drawer.classList.toggle("translate-x-0");
       });
     </script>
   </body>

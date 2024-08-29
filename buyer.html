@@ -175,6 +175,8 @@
                     placeholder="First Name"
                     id="fname"
                     name="fname"
+                    required
+                    minlength="2"
                   />
                   <input
                     type="text"
@@ -182,6 +184,8 @@
                     placeholder="Last Name"
                     id="lname"
                     name="lname"
+                    required
+                    minlength="2"
                   />
                   <input
                     type="email"
@@ -189,6 +193,8 @@
                     placeholder="Email"
                     id="email"
                     name="email"
+                    required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                   />
                   <input
                     type="tel"
@@ -196,11 +202,17 @@
                     placeholder="Phone Number"
                     id="pnumber"
                     name="pnumber"
+                    required
+                    maxlength="10"
+                    pattern="^[0-9]{10}$"
                   />
                   <select name="cars" id="cars" class="form">
                     <option value="volvo">Buyers Event Coming Soon</option>
                   </select>
-                  <div class="g-recaptcha" data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"></div>
+                  <div
+                    class="g-recaptcha"
+                    data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"
+                  ></div>
                   <div
                     class="border border-[#535353] mx-14 rounded-full flex justify-center shadow-lg"
                   >

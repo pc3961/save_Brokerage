@@ -42,7 +42,7 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $recaptcha_secret = '6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q'; // Replace with your actual secret key
+    $recaptcha_secret = '6LfIzRUqAAAAAA0HTs7QCprDxkNsN7JLMTckmr7h'; // Replace with your actual secret key
     $recaptcha_response = $_POST['g-recaptcha-response'];
 
     // Make a POST request to the reCAPTCHA API

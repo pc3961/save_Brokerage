@@ -1,59 +1,66 @@
 <?php
-
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
-require '/mail/Exception.php';
-require '/mail/SMTP.php';
-require '/mail/PHPMailer.php';
+require './mail/Exception.php';
+require './mail/PHPMailer.php';
+require './mail/SMTP.php';
 
-//Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
-
-try {
-    //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'cgs@cgstechlab.com';                     //SMTP username
-    $mail->Password   = 'pwupgeqllrsfgxpz';                               //SMTP password
-    $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
-    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-    //Recipients
-    $mail->setFrom('', 'Contact Form');
-    $mail->addAddress('test@omesacreative.ca', 'Omesa Preview');     //Add a recipient
-
-
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
+header('Content-Type: application/json');  // Set response to JSON format
+$response = ['status' => 'error', 'message' => 'An error occurred.'];  // Default response
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $recaptcha_secret = '6LfIzRUqAAAAAA0HTs7QCprDxkNsN7JLMTckmr7h'; // Replace with your actual secret key
+    // reCAPTCHA secret key
+    $recaptcha_secret = '6LfIzRUqAAAAAA0HTs7QCprDxkNsN7JLMTckmr7h';  // Replace with your actual secret key
     $recaptcha_response = $_POST['g-recaptcha-response'];
 
-    // Make a POST request to the reCAPTCHA API
-    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
-    $response_keys = json_decode($response, true);
+    // Verify the reCAPTCHA response with Google
+    $recaptcha_verify_url = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response";
+    $recaptcha_verify_response = file_get_contents($recaptcha_verify_url);
+    $response_keys = json_decode($recaptcha_verify_response, true);
 
     if (intval($response_keys["success"]) !== 1) {
-        echo 'Please complete the CAPTCHA.';
-    } else {
-        echo 'CAPTCHA completed successfully.';
-        // Continue with form processing
+        // reCAPTCHA failed
+        $response['message'] = 'Please complete the CAPTCHA.';
+        echo json_encode($response);
+        exit;
     }
+
+    // reCAPTCHA successful, proceed with mailer
+    $mail = new PHPMailer(true);
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';  // Set your SMTP server
+        $mail->SMTPAuth = true;
+        $mail->Username = 'test@omesacreative.ca';  // SMTP username
+        $mail->Password = 'ojgavpiqkxixbqpz';  // SMTP password
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+
+        // Recipients
+        $mail->setFrom('test@omesacreative.ca', 'Test Omesacreative');
+        $mail->addAddress('smerai@omesacreative.ca', 'Shailesh Merai');  // Add recipient
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'New Contact Form Submission';
+        $mail->Body = '<b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' ;
+        $mail->AltBody = 'First Name: ' . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'];
+
+        // Send the email
+        $mail->send();
+
+        // If mail is sent successfully, return success response
+        $response['status'] = 'success';
+        $response['message'] = 'THANK YOU We are excited to hear from you! We will connect to discuss more about your interest.';
+
+    } catch (Exception $e) {
+        // If there was an error sending the email
+        $response['message'] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+    }
+
+    // Return the JSON response
+    echo json_encode($response);
 }
 ?>

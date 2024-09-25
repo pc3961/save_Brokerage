@@ -45,8 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Seller Contact Form Submission';
-        $mail->Body = '<b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> '  . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . $_POST['email'] . '<br><b>Message:</b> ' . $_POST['message'] ;
-        $mail->AltBody = 'First Name: ' . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nMessage: " . $_POST['message']  ;
+        $mail->Body = '<b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . '<br><b>Message:</b> ' . $_POST['message'];
+        $mail->AltBody = 'First Name: ' . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nMessage: " . $_POST['message'];
 
         // Send the email
         $mail->send();

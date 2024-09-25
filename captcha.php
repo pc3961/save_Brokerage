@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Recipients
         $mail->setFrom('test@omesacreative.ca', 'Test Omesacreative');
-        $mail->addAddress('smerai@omesacreative.ca', 'Shailesh Merai');  // Add recipient
+        $mail->addAddress('pranav@cgstechlab.com', 'Pranav Chavan');  // Add recipient
 
         // Content
         $mail->isHTML(true);

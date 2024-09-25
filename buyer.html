@@ -167,8 +167,8 @@
               >
                 I am looking to buy !
               </h1>
-              <form action="captcha.php" method="POST">
-                <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
+              <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
+                <form action="captcha.php" id="contactForm" method="POST">
                   <input
                     type="text"
                     class="form"
@@ -213,15 +213,20 @@
                     class="g-recaptcha"
                     data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"
                   ></div>
-                  <div
-                    class="border border-[#535353] mx-14 rounded-full flex justify-center shadow-lg"
+                </form>
+                <div
+                  class="border border-[#535353] mx-14 rounded-full flex justify-center shadow-lg"
+                >
+                  <button
+                    type="submit"
+                    form="contactForm"
+                    class="register items-center"
                   >
-                    <button type="submit" class="register items-center">
-                      Get Notified
-                    </button>
-                  </div>
+                    Get Notified
+                  </button>
                 </div>
-              </form>
+                <div id="form-message" style="margin-top: 20px"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -289,6 +294,38 @@
       </div>
     </section>
     <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent form from submitting normally
+
+          // Collect form data
+          const formData = new FormData(this);
+
+          // Send form data using fetch
+          fetch("./captcha.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.text()) // Get the response as plain text
+            .then((data) => {
+              try {
+                const jsonData = JSON.parse(data); // Parse the text as JSON
+                const messageContainer =
+                  document.getElementById("form-message");
+                if (jsonData.status === "success") {
+                  messageContainer.innerHTML = jsonData.message; // Display the success message
+                  messageContainer.style.color = "green"; // Set text color to green
+                } else {
+                  messageContainer.innerHTML = jsonData.message; // Display the error message
+                  messageContainer.style.color = "red"; // Set text color to red for errors
+                }
+              } catch (error) {
+                console.error("Error parsing JSON:", error);
+              }
+            })
+            .catch((error) => console.error("Error:", error)); // Log any errors
+        });
       const menuBtn = document.getElementById("menu-btn");
       const closeBtn = document.getElementById("close-btn");
       const drawer = document.getElementById("drawer");

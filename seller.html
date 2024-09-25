@@ -217,6 +217,7 @@
                     required
                     minlength="10"
                     maxlength="300"
+                    oninput="removeLinks(this)"
                   />
                   <div
                     class="g-recaptcha"
@@ -227,7 +228,11 @@
               <div
                 class="border border-[#535353] mx-8 rounded-full flex justify-center shadow-lg"
               >
-                <button form="contactForm" type="submit" class="register items-center">
+                <button
+                  form="contactForm"
+                  type="submit"
+                  class="register items-center"
+                >
                   Please Contact Me
                 </button>
               </div>
@@ -300,6 +305,16 @@
     </section>
 
     <script>
+      // Remove Links Function
+      function removeLinks(input) {
+        // Remove any links by replacing them with an empty string
+        input.value = input.value.replace(/https?:\/\/[^\s]+/g, "");
+        const domainRegex =
+          /(?:https?:\/\/|www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/[^\s]*)?/g;
+
+        // Remove any links or domain names by replacing them with an empty string
+        input.value = input.value.replace(domainRegex, "");
+      }
       document
         .getElementById("contactForm")
         .addEventListener("submit", function (e) {

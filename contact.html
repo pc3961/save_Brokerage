@@ -199,14 +199,22 @@
                     placeholder="Message"
                     id="message"
                     name="message"
+                    oninput="removeLinks(this)"
                   />
-                  <div class="g-recaptcha" data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"></div>
+                  <div
+                    class="g-recaptcha"
+                    data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"
+                  ></div>
                 </div>
               </form>
               <div
                 class="bg-[#b97727] mx-8 rounded-full flex justify-center shadow-lg"
               >
-                <button type="submit" form="contactForm" class="register items-center">
+                <button
+                  type="submit"
+                  form="contactForm"
+                  class="register items-center"
+                >
                   Submit
                 </button>
               </div>
@@ -221,7 +229,7 @@
     <section class="bg-[#f8f8f8] flex px-4 md:px-40 py-[47px]">
       <div class="flex gap-x-1 md:gap-x-5 justify-center items-center w-full">
         <h1 class="flex text-sm md:text-4xl font-medium">
-        Get in touch with us
+          Get in touch with us
         </h1>
         <div
           class="flex border bg-[#b97727] text-white items-center justify-center px-4 md:px-5 py-2.5 rounded-lg"
@@ -297,6 +305,16 @@
       </div>
     </section>
     <script>
+      // Remove Links Function
+      function removeLinks(input) {
+        // Remove any links by replacing them with an empty string
+        input.value = input.value.replace(/https?:\/\/[^\s]+/g, "");
+        const domainRegex =
+          /(?:https?:\/\/|www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/[^\s]*)?/g;
+
+        // Remove any links or domain names by replacing them with an empty string
+        input.value = input.value.replace(domainRegex, "");
+      }
       document
         .getElementById("contactForm")
         .addEventListener("submit", function (e) {

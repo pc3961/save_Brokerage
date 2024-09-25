@@ -163,7 +163,7 @@
               >
                 Get in Touch!
               </h1>
-              <form action="captcha.php" method="POST">
+              <form action="captcha.php" id="contactForm" method="POST">
                 <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
                   <input
                     type="text"
@@ -201,15 +201,15 @@
                     name="message"
                   />
                   <div class="g-recaptcha" data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"></div>
-                  <div
-                    class="bg-[#b97727] mx-8 rounded-full flex justify-center shadow-lg"
-                  >
-                    <button type="submit" class="register items-center">
-                      Submit
-                    </button>
-                  </div>
                 </div>
               </form>
+              <div
+                class="bg-[#b97727] mx-8 rounded-full flex justify-center shadow-lg"
+              >
+                <button type="submit" form="contactForm" class="register items-center">
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -297,6 +297,38 @@
       </div>
     </section>
     <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent form from submitting normally
+
+          // Collect form data
+          const formData = new FormData(this);
+
+          // Send form data using fetch
+          fetch("./contact.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.text()) // Get the response as plain text
+            .then((data) => {
+              try {
+                const jsonData = JSON.parse(data); // Parse the text as JSON
+                const messageContainer =
+                  document.getElementById("form-message");
+                if (jsonData.status === "success") {
+                  messageContainer.innerHTML = jsonData.message; // Display the success message
+                  messageContainer.style.color = "green"; // Set text color to green
+                } else {
+                  messageContainer.innerHTML = jsonData.message; // Display the error message
+                  messageContainer.style.color = "red"; // Set text color to red for errors
+                }
+              } catch (error) {
+                console.error("Error parsing JSON:", error);
+              }
+            })
+            .catch((error) => console.error("Error:", error)); // Log any errors
+        });
       const menuBtn = document.getElementById("menu-btn");
       const closeBtn = document.getElementById("close-btn");
       const drawer = document.getElementById("drawer");

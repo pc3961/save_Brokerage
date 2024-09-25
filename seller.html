@@ -24,7 +24,6 @@
         border: solid #b2b2b2;
       }
       .register {
-        
         align-items: center;
         padding-top: 8px;
         padding-bottom: 8px;
@@ -170,7 +169,7 @@
               >
                 I am looking to sell!
               </h1>
-              <form action="captcha.php" method="POST">
+              <form action="seller.php" method="POST" id="contactForm">
                 <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
                   <input
                     type="text"
@@ -219,16 +218,20 @@
                     minlength="10"
                     maxlength="300"
                   />
-                  <div class="g-recaptcha" data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"></div>
                   <div
-                    class="border border-[#535353] mx-8 rounded-full flex justify-center shadow-lg"
-                  >
-                    <button type="submit" class="register items-center">
-                      Please Contact Me
-                    </button>
-                  </div>
+                    class="g-recaptcha"
+                    data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"
+                  ></div>
                 </div>
               </form>
+              <div
+                class="border border-[#535353] mx-8 rounded-full flex justify-center shadow-lg"
+              >
+                <button form="contactForm" type="submit" class="register items-center">
+                  Please Contact Me
+                </button>
+              </div>
+              <div id="form-message" style="margin-top: 20px"></div>
             </div>
           </div>
         </div>
@@ -297,6 +300,38 @@
     </section>
 
     <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent form from submitting normally
+
+          // Collect form data
+          const formData = new FormData(this);
+
+          // Send form data using fetch
+          fetch("./seller.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.text()) // Get the response as plain text
+            .then((data) => {
+              try {
+                const jsonData = JSON.parse(data); // Parse the text as JSON
+                const messageContainer =
+                  document.getElementById("form-message");
+                if (jsonData.status === "success") {
+                  messageContainer.innerHTML = jsonData.message; // Display the success message
+                  messageContainer.style.color = "green"; // Set text color to green
+                } else {
+                  messageContainer.innerHTML = jsonData.message; // Display the error message
+                  messageContainer.style.color = "red"; // Set text color to red for errors
+                }
+              } catch (error) {
+                console.error("Error parsing JSON:", error);
+              }
+            })
+            .catch((error) => console.error("Error:", error)); // Log any errors
+        });
       const menuBtn = document.getElementById("menu-btn");
       const closeBtn = document.getElementById("close-btn");
       const drawer = document.getElementById("drawer");

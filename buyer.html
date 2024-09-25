@@ -167,8 +167,13 @@
               >
                 I am looking to buy !
               </h1>
-              <div class="flex flex-col gap-y-6 pt-10 py-8 px-8">
-                <form action="captcha.php" id="contactForm" method="POST">
+              <form
+                action="captcha.php"
+                id="contactForm"
+                method="POST"
+                class="w-full"
+              >
+                <div class="flex flex-col gap-y-6 pt-10 py-8 px-8 w-full">
                   <input
                     type="text"
                     class="form"
@@ -213,20 +218,20 @@
                     class="g-recaptcha"
                     data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"
                   ></div>
-                </form>
-                <div
-                  class="border border-[#535353] mx-14 rounded-full flex justify-center shadow-lg"
-                >
-                  <button
-                    type="submit"
-                    form="contactForm"
-                    class="register items-center"
-                  >
-                    Get Notified
-                  </button>
                 </div>
-                <div id="form-message" style="margin-top: 20px"></div>
+              </form>
+              <div
+                class="border border-[#535353] mx-14 rounded-full flex justify-center shadow-lg"
+              >
+                <button
+                  type="submit"
+                  form="contactForm"
+                  class="register items-center"
+                >
+                  Get Notified
+                </button>
               </div>
+              <div id="form-message" style="margin-top: 20px"></div>
             </div>
           </div>
         </div>

@@ -45,15 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Buyer Event Registration';
-        $mail->Body = '<b>Buyer Event Registration</b>' . '<b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Selected Option:</b> ' . $_POST['cars'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'];
-        $mail->AltBody = 'First Name: ' . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nSelected Option: " . $_POST['cars'];
+        $mail->Body = '<b>Buyer Event Registration</b>' . '<br><b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Selected Option:</b> ' . $_POST['cars'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'];
+        $mail->AltBody = "Buyer Event Registration" . "\nFirst Name: " . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nSelected Option: " . $_POST['cars'];
 
         // Send the email
         $mail->send();
 
         // If mail is sent successfully, return success response
         $response['status'] = 'success';
-        $response['message'] = 'THANK YOU We are excited to hear from you! We will connect to discuss more about your interest.';
+        $response['message'] = 'Thank you for your interest in the Buyers Event. You will be the first to know when we plan the next one.';
 
     } catch (Exception $e) {
         // If there was an error sending the email

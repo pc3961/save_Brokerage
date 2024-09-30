@@ -45,15 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Seller One on One Consultation Request';
-        $mail->Body ='<b>Seller One on One Consultation Request</b>'. '<b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . '<br><b>Message:</b> ' . $_POST['message'];
-        $mail->AltBody = 'First Name: ' . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nMessage: " . $_POST['message'];
+        $mail->Body = '<b>Seller One on One Consultation Request</b>' . '<br><b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . '<br><b>Message:</b> ' . $_POST['message'];
+        $mail->AltBody = "Seller One on One Consultation Request" . "\n First Name: " . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nMessage: " . $_POST['message'];
 
         // Send the email
         $mail->send();
 
         // If mail is sent successfully, return success response
         $response['status'] = 'success';
-        $response['message'] = 'THANK YOU We are excited to hear from you! We will connect to discuss more about your interest.';
+        $response['message'] = 'Thank you for your request for a one on one consultation. We will connect with you to discuss your home plans';
 
     } catch (Exception $e) {
         // If there was an error sending the email

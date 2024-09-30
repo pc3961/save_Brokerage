@@ -31,21 +31,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Set your SMTP server
+        $mail->Host = 'sh42-750.omesa-hosting.ca';  // Set your SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = 'test@omesacreative.ca';  // SMTP username
-        $mail->Password = 'ojgavpiqkxixbqpz';  // SMTP password
+        $mail->Username = 'archana@saveonbrokerage.ca';  // SMTP username
+        $mail->Password = 'H@^zx8t7-hf7';  // SMTP password
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
         // Recipients
         $mail->setFrom('test@omesacreative.ca', 'Test Omesacreative');
-        $mail->addAddress('smerai@omesacreative.ca', 'Shailesh Merai');  // Add recipient
+        $mail->addAddress('pranav@cgstechlab.com', 'Shailesh Merai');  // Add recipient
 
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Seller One on One Consultation Request';
-        $mail->Body = '<b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . '<br><b>Message:</b> ' . $_POST['message'];
+        $mail->Body ='<b>Seller One on One Consultation Request</b>'. '<b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . '<br><b>Message:</b> ' . $_POST['message'];
         $mail->AltBody = 'First Name: ' . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nMessage: " . $_POST['message'];
 
         // Send the email

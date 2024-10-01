@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Host = 'sh42-750.omesa-hosting.ca';  // Set your SMTP server
         $mail->SMTPAuth = true;
         $mail->Username = 'archana@saveonbrokerage.ca';  // SMTP username
-        $mail->Password = 'ojgavpiqkxixbqpz';  // SMTP password
+        $mail->Password = 'H@^zx8t7-hf7';  // SMTP password
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 

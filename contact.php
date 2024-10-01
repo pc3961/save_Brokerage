@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Port = 465;
 
         // Recipients
-        $mail->setFrom('archana@saveonbrokerage.ca ', 'Archana');
+        $mail->setFrom('archana@saveonbrokerage.ca', 'Archana');
         $mail->addAddress('smerai@omesacreative.ca', 'Shailesh Merai');  // Add recipient
 
         // Content

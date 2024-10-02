@@ -41,11 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Recipients
         $mail->setFrom('archana@saveonbrokerage.ca', 'Archana');
         $mail->addAddress('smerai@omesacreative.ca', 'Shailesh Merai');  // Add recipient
+        $mail->addAddress('sachitshetty13@gmail.com', 'Sachit Shetty');  // Add recipient
 
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Contact Form Submission';
-        $mail->Body = '<b>Contact Form Submission</b>' . '<br><b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . '<br><b>Message:</b> ' . $_POST['message'];
+        $mail->Body = '<b>Contact Form Submission</b><br><br>' . '<br><b>First Name:</b> ' . $_POST['fname'] . '<br><b>Last Name:</b> ' . $_POST['lname'] . '<br><b>Email:</b> ' . $_POST['email'] . '<br><b>Phone Number:</b> ' . $_POST['pnumber'] . '<br><b>Message:</b> ' . $_POST['message'];
         $mail->AltBody = "Contact Form Submission" . "\nFirst Name: " . $_POST['fname'] . "\nLast Name: " . $_POST['lname'] . "\nEmail: " . $_POST['email'] . "\nPhone Number: " . $_POST['pnumber'] . "\nMessage: " . $_POST['message'];
 
         // Send the email
@@ -53,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // If mail is sent successfully, return success response
         $response['status'] = 'success';
-        $response['message'] = 'THANK YOU We are excited to hear from you! We will connect to discuss more about your interest.';
+        $response['message'] = 'Thank you for your request for a one on one consultation. We will connect with you to discuss your home plans';
 
     } catch (Exception $e) {
         // If there was an error sending the email

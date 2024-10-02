@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Recipients
         $mail->setFrom('archana@saveonbrokerage.ca', 'Archana');
         $mail->addAddress('smerai@omesacreative.ca', 'Shailesh Merai');  // Add recipient
+        $mail->addAddress('sachitshetty13@gmail.com', 'Sachit Shetty');  // Add recipient
 
         // Content
         $mail->isHTML(true);

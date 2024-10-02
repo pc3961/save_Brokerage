@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Recipients
         $mail->setFrom('archana@saveonbrokerage.ca', 'Archana');
         $mail->addAddress('smerai@omesacreative.ca', 'Shailesh Merai');  // Add recipient
+        $mail->addAddress('sachitshetty13@gmail.com', 'Sachit Shetty');  // Add recipient
 
         // Content
         $mail->isHTML(true);
@@ -53,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // If mail is sent successfully, return success response
         $response['status'] = 'success';
-        $response['message'] = 'Thank you for your request for a one on one consultation. We will connect with you to discuss your home plans';
+        $response['message'] = 'Thank you for your interest in Sellers Event, You will be the first to know when we plan the next one ';
 
     } catch (Exception $e) {
         // If there was an error sending the email

@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-02MXCPDDLS"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-02MXCPDDLS");
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -236,7 +248,14 @@
                   Please Contact Me
                 </button>
               </div>
-              <div id="form-message" style="margin-top: 20px; padding: 0 20px; text-align: center"></div>
+              <div
+                id="form-message"
+                style="
+                  margin-top: 20px;
+                  padding: 0 20px 20px;
+                  text-align: center;
+                "
+              ></div>
             </div>
           </div>
         </div>

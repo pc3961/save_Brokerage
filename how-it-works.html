@@ -363,19 +363,32 @@
             Stay in Touch
           </h1>
           <div class="flex flex-col md:flex-row w-full gap-y-2 md:gap-x-2">
-            <input
-              type="email"
-              placeholder="Your Email"
-              class="bg-[#2c2c2c] pl-3 rounded-lg w-full md:w-2/3 h-[56px] text-white"
-            />
-            <button
-              form="contactForm"
-              type="submit"
-              class="h-[56px] text-lg text-white w-full md:w-1/3 rounded-lg bg-[#b97727] flex items-center justify-center"
+            <form
+              action="subscription.php"
+              class="w-full flex flex-col md:flex-row gap-x-4 gap-y-4"
+              method="POST"
+              id="newsForm"
             >
-              Submit
-            </button>
+              <input
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                class="bg-[#2c2c2c] pl-3 rounded-lg w-full md:w-2/3 h-[56px] text-white"
+              />
+              <button
+                type="submit"
+                class="h-[56px] text-lg text-white w-full md:w-1/3 rounded-lg bg-[#b97727] flex items-center justify-center"
+              >
+                Submit
+              </button>
+            </form>
           </div>
+          <div
+            id="news-message"
+            style="margin-top: 20px; padding: 0 20px 20px; text-align: center"
+          ></div>
           <div class="flex gap-x-5 py-14">
             <div class="flex flex-col">
               <h1 class="text-white text-lg">Popular Pages</h1>
@@ -399,6 +412,38 @@
       </div>
     </section>
     <script>
+      document
+        .getElementById("newsForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent form from submitting normally
+
+          // Collect form data
+          const formData = new FormData(this);
+
+          // Send form data using fetch
+          fetch("./subscription.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.text()) // Get the response as plain text
+            .then((data) => {
+              try {
+                const jsonData = JSON.parse(data); // Parse the text as JSON
+                const messageContainer =
+                  document.getElementById("news-message");
+                if (jsonData.status === "success") {
+                  messageContainer.innerHTML = jsonData.message; // Display the success message
+                  messageContainer.style.color = "green"; // Set text color to green
+                } else {
+                  messageContainer.innerHTML = jsonData.message; // Display the error message
+                  messageContainer.style.color = "red"; // Set text color to red for errors
+                }
+              } catch (error) {
+                console.error("Error parsing JSON:", error);
+              }
+            })
+            .catch((error) => console.error("Error:", error)); // Log any errors
+        });
       const menuBtn = document.getElementById("menu-btn");
       const closeBtn = document.getElementById("close-btn");
       const drawer = document.getElementById("drawer");

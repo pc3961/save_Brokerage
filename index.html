@@ -503,9 +503,9 @@
           <div class="flex flex-col md:flex-row w-full gap-y-2 md:gap-x-2">
             <form
               action="subscription.php"
-              class="w-full flex gap-x-4 gap-y-2"
+              class="w-full flex flex-col md:flex-row gap-x-4 gap-y-4"
               method="POST"
-              id="contactForm"
+              id="newsForm"
             >
               <input
                 name="email"
@@ -524,7 +524,7 @@
             </form>
           </div>
           <div
-            id="form-message"
+            id="news-message"
             style="margin-top: 20px; padding: 0 20px 20px; text-align: center"
           ></div>
           <div class="flex gap-x-5 py-14">
@@ -552,7 +552,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       document
-        .getElementById("contactForm")
+        .getElementById("newsForm")
         .addEventListener("submit", function (e) {
           e.preventDefault(); // Prevent form from submitting normally
 
@@ -569,7 +569,7 @@
               try {
                 const jsonData = JSON.parse(data); // Parse the text as JSON
                 const messageContainer =
-                  document.getElementById("form-message");
+                  document.getElementById("news-message");
                 if (jsonData.status === "success") {
                   messageContainer.innerHTML = jsonData.message; // Display the success message
                   messageContainer.style.color = "green"; // Set text color to green

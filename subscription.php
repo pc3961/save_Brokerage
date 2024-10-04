@@ -11,6 +11,21 @@ $response = ['status' => 'error', 'message' => 'An error occurred.'];  // Defaul
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    $recaptcha_secret = '6LfIzRUqAAAAAA0HTs7QCprDxkNsN7JLMTckmr7h';  // Replace with your actual secret key
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+
+    // Verify the reCAPTCHA response with Google
+    $recaptcha_verify_url = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response";
+    $recaptcha_verify_response = file_get_contents($recaptcha_verify_url);
+    $response_keys = json_decode($recaptcha_verify_response, true);
+
+    if (intval($response_keys["success"]) !== 1) {
+        // reCAPTCHA failed
+        $response['message'] = 'Please complete the CAPTCHA.';
+        echo json_encode($response);
+        exit;
+    }
+
     $mail = new PHPMailer(true);
     try {
         // Server settings

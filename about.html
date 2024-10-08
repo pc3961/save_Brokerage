@@ -170,11 +170,31 @@
         </a>
       </div>
     </section>
+    <!-- Cookies Code -->
+    <div
+      id="cookie-banner"
+      class="flex fixed z-[300] bottom-0 left-0 right-0 bg-gray-800 text-white p-5 justify-between items-center flex-col md:flex-row md:space-x-4"
+    >
+      <p class="text-lg text-center md:text-left league-spartan">
+        We use cookies to enhance your experience. By continuing to visit this
+        site, you agree to our use of cookies.
+      </p>
+      <button
+        id="accept-cookies"
+        class="bg-blue-500 text-white py-2 px-4 mt-3 md:mt-0 rounded-full league-spartan"
+      >
+        Accept Cookies
+      </button>
+    </div>
     <!-- Footer Section -->
     <section class="bg-black px-4 md:px-40 py-[47px]">
       <div class="flex md:flex-row px-2 md:p-0 flex-col gap-x-8 w-full">
         <div class="flex flex-col w-full">
-          <img src="./assets/Logo.png" class="w-full md:w-[448px]" alt="Brokerage" />
+          <img
+            src="./assets/Logo.png"
+            class="w-full md:w-[448px]"
+            alt="Brokerage"
+          />
           <h1 class="text-white text-lg py-5">
             Real Estate Better Than You Imagined
           </h1>
@@ -206,41 +226,45 @@
           </h1>
           <div class="flex flex-col items-center w-full p-0">
             <form
-                action="subscription.php"
-                class="w-full flex flex-col gap-y-4"
-                method="POST"
-                id="newsForm"
+              action="subscription.php"
+              class="w-full flex flex-col gap-y-4"
+              method="POST"
+              id="newsForm"
             >
-                <!-- Email Input Field -->
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    required
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    class="bg-[#2c2c2c] pl-3 py-2 rounded-lg w-full h-[56px] text-white focus:outline-none focus:ring-2 focus:ring-[#b97727]"
-                />
-    
-                <!-- Recaptcha and Submit Button -->
-                <div class="flex flex-col md:flex-row gap-y-4 md:gap-x-4 items-center w-full md:w-full">
-                    <!-- Google Recaptcha -->
-                    <div class="flex justify-start md:justify-start w-full md:w-auto">
-                        <div
-                            class="g-recaptcha"
-                            data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"
-                        ></div>
-                    </div>
-    
-                    <!-- Submit Button -->
-                    <button
-                        type="submit"
-                        class="h-[56px] text-lg text-white w-full md:w-1/2 rounded-lg bg-[#b97727] flex items-center justify-center hover:bg-[#a36824] transition duration-300"
-                    >
-                        Submit
-                    </button>
+              <!-- Email Input Field -->
+              <input
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                class="bg-[#2c2c2c] pl-3 py-2 rounded-lg w-full h-[56px] text-white focus:outline-none focus:ring-2 focus:ring-[#b97727]"
+              />
+
+              <!-- Recaptcha and Submit Button -->
+              <div
+                class="flex flex-col md:flex-row gap-y-4 md:gap-x-4 items-center w-full md:w-full"
+              >
+                <!-- Google Recaptcha -->
+                <div
+                  class="flex justify-start md:justify-start w-full md:w-auto"
+                >
+                  <div
+                    class="g-recaptcha"
+                    data-sitekey="6LfIzRUqAAAAAPzljJhdvWZBkWtPov-9i0ouXn_q"
+                  ></div>
                 </div>
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  class="h-[56px] text-lg text-white w-full md:w-1/2 rounded-lg bg-[#b97727] flex items-center justify-center hover:bg-[#a36824] transition duration-300"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
-        </div>
+          </div>
           <div
             id="news-message"
             style="margin-top: 20px; padding: 0 20px 20px; text-align: center"
@@ -267,6 +291,27 @@
         </div>
       </div>
     </section>
+    <script>
+      // Cookies Logic 
+      document.getElementById('accept-cookies').addEventListener('click', function() {
+        // Set a cookie indicating that the user has accepted cookies
+        document.cookie = "cookiesAccepted=true; path=/; max-age=" + (60 * 60 * 24 * 365); // Cookie valid for 1 year
+    
+        // Hide the cookie banner
+        document.getElementById('cookie-banner').style.display = 'none';
+    
+        // Show a dialog box confirming the acceptance
+        alert("Thank you! You have accepted cookies.");
+    });
+    function checkCookiesAccepted() {
+        if (document.cookie.split('; ').find(row => row.startsWith('cookiesAccepted'))) {
+            // Cookie is set, hide the banner
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    }
+    
+    window.onload = checkCookiesAccepted;
+    </script>
     <script>
       document
         .getElementById("newsForm")

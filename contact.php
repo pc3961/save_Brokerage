@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // If mail is sent successfully, return success response
         $response['status'] = 'success';
-        $response['message'] = 'Thank you for your request for a one on one consultation. We will connect with you to discuss your home plans';
+        $response['message'] = 'Thank you for contacting us. We will connect with you to discuss your home plans';
 
     } catch (Exception $e) {
         // If there was an error sending the email
